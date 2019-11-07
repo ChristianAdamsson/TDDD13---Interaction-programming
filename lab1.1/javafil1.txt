@@ -1,0 +1,70 @@
+package com.example.chris.lab11_new;
+
+
+
+
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.text.Layout;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.RatingBar;
+import android.widget.Toolbar;
+
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+    Button b1;
+    EditText e1;
+    RatingBar r1;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        LinearLayout layout = new LinearLayout(this);
+        layout.setOrientation(LinearLayout.VERTICAL);
+        b1 = new Button(this);
+
+        b1.setText("Knapp");
+
+        e1 = new EditText(this);
+        e1.setText("Text fält");
+
+        r1 = new RatingBar(this);
+        r1.setNumStars(5);
+
+
+        LinearLayout.LayoutParams params1 = new LinearLayout.LayoutParams
+                (ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+        LinearLayout.LayoutParams params2 = new LinearLayout.LayoutParams
+                (ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+        params2.setMargins(200, 0,0,0);
+        layout.addView(b1,params1);
+        layout.addView(e1, params1);
+        layout.addView(r1, params2);
+        setContentView(layout);
+        b1.setOnClickListener(this);
+        /*
+         b1.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+                 doMagic();
+             }
+         });
+         */
+    }
+
+    private void doMagic() {
+        //doLogin();
+        //doRequest();
+        //doCallFri();
+        //while()
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (v == b1)
+            doMagic();
+    }
+}

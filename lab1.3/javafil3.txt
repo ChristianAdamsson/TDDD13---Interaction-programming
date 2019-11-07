@@ -1,0 +1,118 @@
+package com.example.chris.lab13_new;
+
+
+
+
+import android.graphics.drawable.Drawable;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.text.Layout;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RatingBar;
+import android.widget.CheckBox;
+import android.widget.TextView;
+
+import android.widget.Toolbar;
+
+public class MainActivity extends AppCompatActivity{
+    Button b1;
+    CheckBox c1, c2, c3, c4, c5, c6, c7;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        LinearLayout layout = new LinearLayout(this);
+        layout.setOrientation(LinearLayout.VERTICAL);
+
+
+        LinearLayout checkboxlayout1 = new LinearLayout(this);
+        checkboxlayout1.setOrientation(LinearLayout.HORIZONTAL);
+
+        TextView t1 = new TextView(this);
+        t1.setText("Hur trvis du på LiU");
+        c1 = new CheckBox(this);
+        c1.setText("Bra");
+        c2 = new CheckBox(this);
+        c2.setText("Mycket Bra");
+        c3 = new CheckBox(this);
+        c3.setText("Jätte Bra");
+
+        TextView t2 = new TextView(this);
+        t2.setText("Läser du på LiTH");
+        LinearLayout checkboxlayout2 = new LinearLayout(this);
+        checkboxlayout2.setOrientation(LinearLayout.HORIZONTAL);
+        c4 = new CheckBox(this);
+        c4.setText("Ja");
+        c5 = new CheckBox(this);
+        c5.setText("Nej");
+
+        LinearLayout checkboxlayout3 = new LinearLayout(this);
+        checkboxlayout3.setOrientation(LinearLayout.HORIZONTAL);
+
+        TextView t3 = new TextView(this);
+        t3.setText("Är detta LiUs logotyp");
+
+        ImageView imv = new ImageView(this);
+
+        //använder mig av recoursen, "R"
+        Drawable mydrawable = getResources().getDrawable(R.drawable.liulogga);
+
+        imv.setImageDrawable(mydrawable);
+
+       // imv.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+
+
+
+
+
+        b1 = new Button(this);
+        b1.setText("Skicka in");
+
+
+        LinearLayout.LayoutParams params1 = new LinearLayout.LayoutParams
+                (ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+        LinearLayout.LayoutParams params2 = new LinearLayout.LayoutParams
+                (ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+        LinearLayout.LayoutParams params3 = new LinearLayout.LayoutParams
+                (ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.MATCH_PARENT);
+
+
+        checkboxlayout1.addView(c1, params3);
+        checkboxlayout1.addView(c2, params3);
+        checkboxlayout1.addView(c3, params2);
+
+        checkboxlayout2.addView(c4, params3);
+        checkboxlayout2.addView(c5, params3);
+
+
+
+
+
+        layout.addView(t1, params1);
+        layout.addView(checkboxlayout1, params2);
+        layout.addView(t2, params2);
+        layout.addView(checkboxlayout2, params2);
+        layout.addView(imv, params1);
+        layout.addView(t3, params2);
+        layout.addView(checkboxlayout3, params2);
+        layout.addView(b1, params1);
+
+
+
+
+       // params2.setMargins(200, 0,0,0);
+
+        setContentView(layout);
+
+    }
+
+
+
+
+}

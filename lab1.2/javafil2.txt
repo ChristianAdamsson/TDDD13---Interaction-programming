@@ -1,0 +1,79 @@
+package com.example.chris.lab12_new;
+
+
+
+
+
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.text.InputType;
+import android.text.Layout;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.widget.*;
+
+public class MainActivity extends AppCompatActivity{
+
+    TableRow r1,r2,r3,r4;
+    TextView t1, t2, t3, t4;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        TableLayout layout = new TableLayout(this);
+        r1 = new TableRow(this);
+        r2 = new TableRow(this);
+        r3 = new TableRow(this);
+        r4 = new TableRow(this);
+        t1 = new TextView(this);
+        t2 = new TextView(this);
+        t3 = new TextView(this);
+        t4 = new TextView(this);
+
+        t1.setText("Namn");
+        t2.setText("Lösenord");
+        t3.setText("e-mail");
+        t4.setText("Ålder");
+
+        EditText e1 = new EditText(this);
+        EditText e2 = new EditText(this);
+        EditText e3 = new EditText(this);
+
+
+        e2.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+        e3.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS);
+
+        SeekBar s1 = new SeekBar(this);
+
+        TableLayout.LayoutParams paramstable = new TableLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+        TableRow.LayoutParams paramsrow = new TableRow.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+
+
+
+
+
+        layout.addView(r1, paramstable);
+        layout.addView(t1, paramsrow);
+        layout.addView(e1, paramsrow);
+
+        layout.addView(r2, paramstable);
+        layout.addView(t2, paramsrow);
+        layout.addView(e2, paramsrow);
+
+        layout.addView(r3, paramstable);
+        layout.addView(t3, paramsrow);
+        layout.addView(e3, paramsrow);
+
+        layout.addView(r4, paramstable);
+        layout.addView(t4, paramsrow);
+        layout.addView(s1, paramsrow);
+
+
+        setContentView(layout);
+
+
+    }
+
+
+
+}
